@@ -6,7 +6,7 @@ public class CubeMovement : MonoBehaviour
 {
     public float speed = 5f;
 
-    private void Update()
+    private void FixedUpdate()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -20,6 +20,8 @@ public class CubeMovement : MonoBehaviour
             
             Vector3 jumpForce = new Vector3(0f, 5f, 0f);
             GetComponent<Rigidbody>().AddForce(jumpForce, ForceMode.Impulse);
+
         }
     }
+
 }
