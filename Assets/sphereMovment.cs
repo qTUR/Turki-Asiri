@@ -30,6 +30,7 @@ public class SphereMovement : MonoBehaviour
        
         Debug.Log("Attacking Enemy!");
         Destroy(Enemy);
+       
     }
     public void OnCollisionEnter(Collision collision)
     {
@@ -38,6 +39,7 @@ public class SphereMovement : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
             Debug.Log("Enmy is Dead");
+          
         }
         {
             if (collision.gameObject.tag !="Player")

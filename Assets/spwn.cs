@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UI;
@@ -8,9 +7,7 @@ public class Spawn : MonoBehaviour
 {
     public GameObject sphere;
 
-    public object Up { get; private set; }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -25,15 +22,10 @@ public class Spawn : MonoBehaviour
 
     void Shot()
     {
-        GameObject g = Instantiate(sphere, transform.position + Vector3 Up.forward, Quaternion.identity);
+        GameObject g = Instantiate(sphere, transform.position + Vector3 .forward, Quaternion.identity);
         Destroy(g, 5f);
 
         
         Physics.IgnoreCollision(g.GetComponent<Collider>(), GetComponent<Collider>());
-    }
-
-    private GameObject Instantiate(GameObject sphere, object value, object forward, Quaternion identity)
-    {
-        throw new NotImplementedException();
     }
 }
