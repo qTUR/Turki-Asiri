@@ -29,7 +29,8 @@ public class EnemyController : MonoBehaviour
 
     private void FireSphere()
     {
-        GameObject sphere = Instantiate(spherePrefab, sphereSpawnPoint.position, Quaternion.identity);
+        GameObject gameObject1 = Instantiate(spherePrefab, sphereSpawnPoint.position, Quaternion.identity);
+        GameObject sphere = gameObject1;
         Rigidbody sphereRigidbody = sphere.GetComponent<Rigidbody>();
         sphereRigidbody.velocity = sphereSpawnPoint.forward * sphereSpeed;
         Destroy(sphere, 5f);

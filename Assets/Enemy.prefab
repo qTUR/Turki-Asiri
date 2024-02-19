@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5534668492961568117
 Transform:
   m_ObjectHideFlags: 0
@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spherePrefab: {fileID: 3375189756754967123, guid: 2d76c7ccc35f0294d8b6a24afbdfbbdf, type: 3}
   sphereSpawnPoint: {fileID: 0}
-  sphereSpeed: 5
-  fireRate: 1
+  sphereSpeed: 3
+  fireRate: 50
   alertObject: {fileID: 0}
