@@ -1332,7 +1332,7 @@ MonoBehaviour:
   spherePrefab: {fileID: 3375189756754967123, guid: dad814110581d864d83e357783c5c039, type: 3}
   sphereSpawnPoint: {fileID: 2056716638}
   sphereSpeed: 3
-  fireRate: 8
+  fireRate: 1
   alertObject: {fileID: 1750668903}
 --- !u!65 &441358901
 BoxCollider:

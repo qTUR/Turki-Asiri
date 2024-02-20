@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,32 +8,51 @@ public class EnemyController : MonoBehaviour
     public GameObject spherePrefab;
     public Transform sphereSpawnPoint;
     public float sphereSpeed = 5f;
-    public float fireRate = 1f;
+    public float fireRate = 2f;
     public GameObject alertObject;
 
-    private float nextFireTime;
+    Coroutine c;
     private bool isHit;
 
     private void Start()
     {
-        nextFireTime = Time.time;
+        
+        c =StartCoroutine(FireSphereCoroutine());
+
     }
+
 
     private void Update()
     {
-        if (Time.time >= nextFireTime)
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            FireSphere();
-            nextFireTime = Time.time + 1f / fireRate;
+            StopCoroutine(c);
+            //c= null;
+        }
+        if (Input.GetKeyUp(KeyCode.D)) 
+        {
+            StartCoroutine(c);
+            return;
         }
     }
 
-    private void FireSphere()
+    private void StartCoroutine(Coroutine c)
     {
-        GameObject gameObject1 = Instantiate(spherePrefab, sphereSpawnPoint.position, Quaternion.identity);
-        GameObject sphere = gameObject1;
-        Rigidbody sphereRigidbody = sphere.GetComponent<Rigidbody>();
-        sphereRigidbody.velocity = sphereSpawnPoint.forward * sphereSpeed;
-        Destroy(sphere, 5f);
+        
+    }
+
+    private IEnumerator FireSphereCoroutine()
+    {
+        while (true)
+        {
+            GameObject sphere = Instantiate(spherePrefab, sphereSpawnPoint.position, Quaternion.identity);
+            Rigidbody sphereRigidbody = sphere.GetComponent<Rigidbody>();
+         sphereRigidbody.velocity = sphereSpawnPoint.forward * sphereSpeed;
+         Destroy(sphere, 5f); 
+            yield return new WaitForSeconds(1f/ fireRate);
+        }
+        
+
+       
     }
 }
