@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enmy
   - Eenemy
+  - Destroyable"
+  - Destroyable
   layers:
   - Default
   - TransparentFX
