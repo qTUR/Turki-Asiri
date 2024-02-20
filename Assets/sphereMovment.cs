@@ -48,6 +48,14 @@ public class SphereMovement : MonoBehaviour
 
             }
         }
-    }
 
+        if (collision.gameObject.CompareTag("Destroyable"))
+        {
+            DisableExplosionComponents(collision.gameObject);
+        }
+    }
+    private void DisableExplosionComponents(GameObject targetObject)
+    {
+
+    }
 }

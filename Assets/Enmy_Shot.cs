@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
 
 
     private void Update()
-    {
+    {/*
         if (Input.GetKeyDown(KeyCode.D))
         {
             StopCoroutine(c);
@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
         {
             StartCoroutine(c);
             return;
-        }
+        }*/
     }
 
     private void StartCoroutine(Coroutine c)
