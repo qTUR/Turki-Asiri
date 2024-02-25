@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 3299632460695803064}
   - component: {fileID: 3156567172641991761}
   - component: {fileID: 8973758370409066272}
+  - component: {fileID: -5436151456917594972}
+  - component: {fileID: 5148393183745640571}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Enmy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,13 +118,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3375189756754967123}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6cdd801c2692c44097055280f11049a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  Enemy: {fileID: 0}
+  Enemy: {fileID: 8264497426191219961, guid: e2bba2a2d06c97b4ba3eecb132e0acb4, type: 3}
 --- !u!54 &8973758370409066272
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -150,3 +152,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-5436151456917594972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3375189756754967123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7acfb84cd77497e46804953326224f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  player: {fileID: 0}
+--- !u!114 &5148393183745640571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3375189756754967123}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6cdd801c2692c44097055280f11049a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  Enemy: {fileID: 0}

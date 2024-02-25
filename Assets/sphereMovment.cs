@@ -13,12 +13,12 @@ public class SphereMovement : MonoBehaviour
 
         if (Enemy != null)
         {
-            Vector3 direction = Enemy.transform.position - transform.position; 
-            transform.rotation = Quaternion.LookRotation(direction); 
-
+            Vector3 direction = Enemy.transform.position - transform.position;
+            transform.rotation = Quaternion.LookRotation(direction);
+   
             float distance = direction.magnitude; 
 
-            if (distance <= 1f) 
+            if (distance <= 7f) 
             {
                 Attack(); 
             }
@@ -58,4 +58,5 @@ public class SphereMovement : MonoBehaviour
     {
 
     }
+
 }
