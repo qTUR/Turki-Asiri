@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,28 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-   
-   private void Start()
+    public void LoadLevel1()
     {
-        //StartCoroutine(LoadSceneCoroutine());
-        
+        StartCoroutine(LoadSceneCoroutine("Level_1"));
     }
 
-
-    public void LOadScen() 
+    public void LoadLevel2()
     {
-        StartCoroutine(LoadSceneCoroutine());
+        StartCoroutine(LoadSceneCoroutine("Level_2"));
     }
-    private IEnumerator LoadSceneCoroutine()
+
+    private IEnumerator LoadSceneCoroutine(string sceneName)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync("Level_1");
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
         while (!operation.isDone)
         {
-            Debug.Log($"Progress:{operation.progress}");
+            Debug.Log($"Progress: {operation.progress}");
             yield return null;
         }
     }
-    
-
-
 }
