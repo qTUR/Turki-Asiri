@@ -4,14 +4,40 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target; 
-    public float smoothSpeed = 0.125f; 
-    public Vector3 offset; 
+    public Transform target;
+    public float rotationSpeed = 5f;
+    public Vector3 offset;
 
-    private void FixedUpdate()
+    private float mouseX, mouseY;
+
+    private bool isCursorVisible = true;
+
+    private void Update()
     {
-        Vector3 desiredPosition = target.position + offset; 
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed); 
-        transform.position = smoothedPosition; 
+        mouseX += Input.GetAxis("Mouse X") * rotationSpeed;
+        mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed;
+        mouseY = Mathf.Clamp(mouseY, -90f, 90f);
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            isCursorVisible = !isCursorVisible;
+            Cursor.visible = isCursorVisible;
+
+            if (isCursorVisible)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
+    }
+    private void LateUpdate()
+    {
+        Quaternion rotation = Quaternion.Euler(mouseY, mouseX, 0f);
+        transform.position = target.position + rotation * offset;
+        transform.LookAt(target);
     }
 }
