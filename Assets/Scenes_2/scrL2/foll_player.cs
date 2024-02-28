@@ -6,10 +6,16 @@ public class SphereMovement_1 : MonoBehaviour
 {
     public float speed;
     public GameObject player;
+    private bool isAttacking = false;
+
+    private void Start()
+    {
+        SetPlayer(player);
+    }
 
     public void Update()
     {
-        if (player != null)
+        if (player != null && isAttacking)
         {
             Vector3 direction = player.transform.position - transform.position;
             transform.rotation = Quaternion.LookRotation(direction);
@@ -23,20 +29,25 @@ public class SphereMovement_1 : MonoBehaviour
         player = newPlayer;
     }
 
-    
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            isAttacking = true;
             Attack();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isAttacking = false;
         }
     }
 
     void Attack()
     {
-        Debug.Log("Attacking Player!");
-       
-       
+        Debug.Log("Enemy is attacking!");
     }
 }

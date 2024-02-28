@@ -1,62 +1,57 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SphereMovement : MonoBehaviour
 {
     public float speed;
-    public GameObject Enemy; 
+    private GameObject player;
 
-    void Update()
+    private void Start()
     {
-        transform.position += transform.forward * speed * Time.deltaTime;
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
-        if (Enemy != null)
+    private void Update()
+    {
+        if (player != null)
         {
-            Vector3 direction = Enemy.transform.position - transform.position;
-            transform.rotation = Quaternion.LookRotation(direction);
-   
-            float distance = direction.magnitude; 
+            Vector3 directionToPlayer = player.transform.position - transform.position;
+            transform.rotation = Quaternion.LookRotation(directionToPlayer);
 
-            if (distance <= 7f) 
+            float distanceToPlayer = directionToPlayer.magnitude;
+
+            if (distanceToPlayer <= 7f)
             {
-                Attack(); 
+                Attack();
+            }
+            else
+            {
+                MoveTowardsPlayer();
             }
         }
     }
 
-    void Attack()
+    private void MoveTowardsPlayer()
     {
-       
-        Debug.Log("Attacking Enemy!");
-        Destroy(Enemy);
-       
+        Vector3 directionToPlayer = player.transform.position - transform.position;
+        transform.position += directionToPlayer.normalized * speed * Time.deltaTime;
     }
-    public void OnCollisionEnter(Collision collision)
+
+    private void Attack()
     {
-        if (collision.gameObject.tag != "Enmy")
-        {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-            Debug.Log("Enmy is Dead");
-          
-        }
-        {
-            if (collision.gameObject.tag !="Player")
-            {
-                Debug.Log("ur dead !!");
+        Debug.Log("Attacking Player!");
 
-            }
-        }
 
-        if (collision.gameObject.CompareTag("Destroyable"))
-        {
-            DisableExplosionComponents(collision.gameObject);
-        }
     }
+
     private void DisableExplosionComponents(GameObject targetObject)
     {
+        ExplosionComponent explosionComponent = targetObject.GetComponentInChildren<ExplosionComponent>();
 
+        if (explosionComponent != null)
+        {
+            explosionComponent.enabled = false;
+        }
     }
-
 }

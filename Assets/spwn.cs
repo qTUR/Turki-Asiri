@@ -23,6 +23,9 @@ public class Spawn : MonoBehaviour
     void Shot()
     {
         GameObject g = Instantiate(sphere, transform.position + Vector3 .forward, Quaternion.identity);
-        
+        Destroy(g, 5f);
+
+
+        Physics.IgnoreCollision(g.GetComponent<Collider>(), GetComponent<Collider>());
     }
 }

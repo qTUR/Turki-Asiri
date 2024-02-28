@@ -1,58 +1,54 @@
-using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public GameObject spherePrefab;
-    public Transform sphereSpawnPoint;
-    public float sphereSpeed = 5f;
-    public float fireRate = 2f;
-    public GameObject alertObject;
+    public GameObject bulletPrefab;
+    public float bulletSpeed = 10f;
+    public float shootInterval = 2f;
+    public float attackRange = 20f;
 
-    Coroutine c;
-    private bool isHit;
+    private float nextShootTime;
+    private GameObject player;
 
     private void Start()
     {
-        
-        c =StartCoroutine(FireSphereCoroutine());
-
+        nextShootTime = Time.time + shootInterval;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
-
 
     private void Update()
-    {/*
-        if (Input.GetKeyDown(KeyCode.D))
+    {
+        if (player != null)
         {
-            StopCoroutine(c);
-            //c= null;
+            Vector3 directionToPlayer = player.transform.position - transform.position;
+            float distanceToPlayer = directionToPlayer.magnitude;
+
+            if (distanceToPlayer <= attackRange)
+            {
+                RotateTowardsPlayer(directionToPlayer);
+
+                if (Time.time >= nextShootTime)
+                {
+                    ShootAtPlayer();
+                    nextShootTime = Time.time + shootInterval;
+                }
+            }
         }
-        if (Input.GetKeyUp(KeyCode.D)) 
-        {
-            StartCoroutine(c);
-            return;
-        }*/
     }
 
-    private void StartCoroutine(Coroutine c)
+    private void RotateTowardsPlayer(Vector3 direction)
     {
-        
+        Quaternion lookRotation = Quaternion.LookRotation(direction, Vector3.up);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, Time.deltaTime * 360f);
     }
 
-    private IEnumerator FireSphereCoroutine()
+    private void ShootAtPlayer()
     {
-        while (true)
-        {
-            GameObject sphere = Instantiate(spherePrefab, sphereSpawnPoint.position, Quaternion.identity);
-            Rigidbody sphereRigidbody = sphere.GetComponent<Rigidbody>();
-         sphereRigidbody.velocity = sphereSpawnPoint.forward * sphereSpeed;
-         Destroy(sphere, 5f); 
-            yield return new WaitForSeconds(1f/ fireRate);
-        }
-        
-
-       
+        Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        bullet.GetComponent<Rigidbody>().velocity = directionToPlayer * bulletSpeed;
+        Destroy(bullet, 5f);
     }
 }

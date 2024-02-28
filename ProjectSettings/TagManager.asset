@@ -8,6 +8,8 @@ TagManager:
   - Eenemy
   - Destroyable"
   - Destroyable
+  - T123
+  - Ground
   layers:
   - Default
   - TransparentFX

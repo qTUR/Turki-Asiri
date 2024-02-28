@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3156567172641991761}
   - component: {fileID: 8973758370409066272}
   m_Layer: 0
-  m_Name: Enmy_bullet
+  m_Name: bulletPrefab
   m_TagString: Enmy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3375189756754967123}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6cdd801c2692c44097055280f11049a, type: 3}
   m_Name: 
