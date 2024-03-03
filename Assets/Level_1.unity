@@ -368,7 +368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b45e496b386039141af15f243dd3ac22, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.3
+      value: -6.4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b45e496b386039141af15f243dd3ac22, type: 3}
       propertyPath: m_LocalPosition.y
@@ -376,7 +376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b45e496b386039141af15f243dd3ac22, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.2
+      value: -53.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b45e496b386039141af15f243dd3ac22, type: 3}
       propertyPath: m_LocalRotation.w
@@ -436,6 +436,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: b45e496b386039141af15f243dd3ac22, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1763591865}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: b45e496b386039141af15f243dd3ac22, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1763591866}
   m_SourcePrefab: {fileID: 100100000, guid: b45e496b386039141af15f243dd3ac22, type: 3}
 --- !u!1001 &359425853
 PrefabInstance:
@@ -1389,16 +1392,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441358895}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a15b7cb4635e4545b97fb330e68216b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spherePrefab: {fileID: 3375189756754967123, guid: dad814110581d864d83e357783c5c039, type: 3}
-  sphereSpawnPoint: {fileID: 2056716638}
-  sphereSpeed: 3
-  fireRate: 1
-  alertObject: {fileID: 1750668903}
+  bulletPrefab: {fileID: 0}
+  bulletSpeed: 10
+  shootInterval: 2
+  attackRange: 20
 --- !u!65 &441358901
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2107,11 +2109,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100008, guid: 2dc7b382d25903545b405802eb2198ab, type: 3}
   m_PrefabInstance: {fileID: 1498985842}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &971106194 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400008, guid: 2dc7b382d25903545b405802eb2198ab, type: 3}
-  m_PrefabInstance: {fileID: 1498985842}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &971106195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2389,7 +2386,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  Enemy: {fileID: 1750668903}
 --- !u!65 &1017039900
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2902,11 +2898,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a15b7cb4635e4545b97fb330e68216b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spherePrefab: {fileID: 3375189756754967123, guid: dad814110581d864d83e357783c5c039, type: 3}
-  sphereSpawnPoint: {fileID: 971106194}
-  sphereSpeed: 7
-  fireRate: 3
-  alertObject: {fileID: 1750668903}
+  bulletPrefab: {fileID: 0}
+  bulletSpeed: 10
+  shootInterval: 2
+  attackRange: 20
 --- !u!114 &1246186055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3502,7 +3497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4334248379434994, guid: a114301c17a8f9d4e87a828e20f894a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35.7
+      value: -29.4
       objectReference: {fileID: 0}
     - target: {fileID: 4334248379434994, guid: a114301c17a8f9d4e87a828e20f894a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3612,7 +3607,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  Enemy: {fileID: 1750668903}
 --- !u!65 &1643380303
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4019,6 +4013,27 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.40000007, y: 2.9999995, z: 0.40000027}
+  m_Center: {x: 0.19999991, y: 1.4999998, z: 0.19999984}
+--- !u!65 &1763591866
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763591857}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.40000007, y: 2.9999995, z: 0.40000027}
@@ -4554,11 +4569,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100008, guid: 2dc7b382d25903545b405802eb2198ab, type: 3}
   m_PrefabInstance: {fileID: 141710410}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2056716638 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400008, guid: 2dc7b382d25903545b405802eb2198ab, type: 3}
-  m_PrefabInstance: {fileID: 141710410}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &2056716640
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4686,7 +4696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1750668909}
-  smoothSpeed: 0.125
+  rotationSpeed: 5
   offset: {x: 1, y: 1, z: -3}
 --- !u!1001 &6860257812292807994
 PrefabInstance:

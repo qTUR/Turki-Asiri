@@ -380,6 +380,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  Rigidbody: {fileID: 0}
+  movement: {x: 0, y: 0}
 --- !u!54 &654847518
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -761,7 +763,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 46
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -808,7 +810,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1877434654}
   rotationSpeed: 3
-  offset: {x: 0, y: 3, z: -8}
+  offset: {x: 0, y: 4, z: -8}
+  Rigidbody: {fileID: 654847518}
+  playerTransform: {fileID: 1877434654}
+  horizontalSensitivity: 2
+  minZoomDistance: 6
+  maxZoomDistance: 20
+  zoomSpeed: 1
 --- !u!1 &1877434653 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 81bb9eea30387e442899949a80011e55, type: 3}
@@ -864,12 +872,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87dc050f861871743b2d7dbc14ee6b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missilePrefab: {fileID: 0}
-  missileSpawnPoint: {fileID: 1040355003997270356, guid: ce2a0f0dc33a31449a9a0c2ed2dbce6c, type: 3}
-  missileSpeed: 4
-  fireRate: 1
-  missileLifetime: 5
-  nextFireTime: 0
 --- !u!1001 &2079553977
 PrefabInstance:
   m_ObjectHideFlags: 0
