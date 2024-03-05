@@ -42,21 +42,17 @@ public class CubeMovement : MonoBehaviour
     public void FixedUp()
         {
         movement = a_PlayerActions.Gameplay.Gameplay.ReadValue<Vector2>();
-        Rigidbody.velocity = new Vector3(movement.x * speed, Rigidbody.velocity.y, movement.y * speed);
+        Rigidbody.velocity = new Vector3(movement.x*speed, Rigidbody.velocity.y , movement.y*speed) ;
 
         }
     public void Awake()
     {
         a_PlayerActions = new PlayerActions();
         Rigidbody = GetComponent<Rigidbody>();
-        if (Rigidbody== null)
-        {
-            Debug.LogError("rigidBody is NULL for player");
-        }
-
-
+        
+    
     }
-
+   
 
 }
 

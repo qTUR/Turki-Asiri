@@ -44,8 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a15b7cb4635e4545b97fb330e68216b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spherePrefab: {fileID: 3375189756754967123, guid: 2d76c7ccc35f0294d8b6a24afbdfbbdf, type: 3}
-  sphereSpawnPoint: {fileID: 0}
-  sphereSpeed: 3
-  fireRate: 50
-  alertObject: {fileID: 0}
+  bulletPrefab: {fileID: 3375189756754967123, guid: dad814110581d864d83e357783c5c039, type: 3}
+  bulletSpeed: 10
+  shootInterval: 2
+  attackRange: 20

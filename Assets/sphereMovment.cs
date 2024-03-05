@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SphereMovement : MonoBehaviour
+public class SphereMovement_2 : MonoBehaviour
 {
     public float speed;
     private GameObject player;
+    private bool isAttacking = false;
 
     private void Start()
     {
@@ -21,9 +20,10 @@ public class SphereMovement : MonoBehaviour
 
             float distanceToPlayer = directionToPlayer.magnitude;
 
-            if (distanceToPlayer <= 7f)
+            if (distanceToPlayer <= 7f && !isAttacking)
             {
                 Attack();
+                isAttacking = true;
             }
             else
             {
@@ -41,8 +41,6 @@ public class SphereMovement : MonoBehaviour
     private void Attack()
     {
         Debug.Log("Attacking Player!");
-
-
     }
 
     private void DisableExplosionComponents(GameObject targetObject)

@@ -9,8 +9,18 @@ public class BoxEnemyTrigger : MonoBehaviour
     public float spawnDelay = 3f;
     public float enemyLifetime = 5f;
 
+    public AudioClip consoleSound;
+
     private bool playerInRange = false;
     private int spawnedEnemies = 0;
+
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = consoleSound;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,6 +29,8 @@ public class BoxEnemyTrigger : MonoBehaviour
             playerInRange = true;
             StartCoroutine(SpawnEnemies());
             Debug.Log("Player is attacking!");
+
+            audioSource.Play();
         }
     }
 
