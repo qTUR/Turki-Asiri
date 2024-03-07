@@ -14,6 +14,14 @@ public class SceneLoader : MonoBehaviour
     {
         StartCoroutine(LoadSceneCoroutine("Level_2"));
     }
+    public void LoadLevel3()
+    {
+        StartCoroutine(LoadSceneCoroutine("Level_3"));
+    }
+    public void LoadLevelHorro()
+    {
+        StartCoroutine(LoadSceneCoroutine("Horror"));
+    }
 
     private IEnumerator LoadSceneCoroutine(string sceneName)
     {

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,58 +13,102 @@ public class AnimationController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        // تشغيل الركض
+        if (IsRunning())
         {
             animator.SetBool("isRunning", true);
             animator.SetBool("isIdle", false);
         }
-
-        if (Input.GetKeyUp(KeyCode.W))
+        else
         {
             animator.SetBool("isRunning", false);
             animator.SetBool("isIdle", true);
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        // تشغيل الحركة الجانبية
+        if (IsMovingLeft())
         {
             animator.SetFloat("moveDirection", -1);
         }
-
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            animator.SetFloat("moveDirection", 0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
+        else if (IsMovingRight())
         {
             animator.SetFloat("moveDirection", 1);
         }
-
-        if (Input.GetKeyUp(KeyCode.D))
+        else
         {
             animator.SetFloat("moveDirection", 0);
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        // الحركة الخلفية
+        if (IsMovingBackward())
         {
             animator.SetBool("isBackward", true);
             animator.SetBool("isIdle", false);
         }
-
-        if (Input.GetKeyUp(KeyCode.S))
+        else
         {
             animator.SetBool("isBackward", false);
             animator.SetBool("isIdle", true);
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        // القفزة
+        if (IsRolling())
         {
             animator.SetTrigger("roll");
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        // إطلاق النار
+        if (IsShooting())
         {
             animator.SetTrigger("shoot");
         }
+    }
+
+    private bool IsRunning()
+    {
+        // قم بتنفيذ رمز الاختبار الخاص بالركض هنا
+        // يجب أن يُرجَع قيمة true عندما يتم تشغيل السيناريو المطلوب
+        // وإلا، يجب أن يُرجَع قيمة false
+        return false;
+    }
+
+    private bool IsMovingLeft()
+    {
+        // قم بتنفيذ رمز الاختبار الخاص بالحركة الجانبية لليسار هنا
+        // يجب أن يُرجَع قيمة true عندما يتم تشغيل السيناريو المطلوب
+        // وإلا، يجب أن يُرجَع قيمة false
+        return false;
+    }
+
+    private bool IsMovingRight()
+    {
+        // قم بتنفيذ رمز الاختبار الخاص بالحركة الجانبية لليمين هنا
+        // يجب أن يُرجَع قيمة true عندما يتم تشغيل السيناريو المطلوب
+        // وإلا، يجب أن يُرجَع قيمة false
+        return false;
+    }
+
+    private bool IsMovingBackward()
+    {
+        // قم بتنفيذ رمز الاختبار الخاص بالحركة الخلفية هنا
+        // يجب أن يُرجَع قيمة true عندما يتم تشغيل السيناريو المطلوب
+        // وإلا، يجب أن يُرجَع قيمة false
+        return false;
+    }
+
+    private bool IsRolling()
+    {
+        // قم بتنفيذ رمز الاختبار الخاص بالقفزة هنا
+        // يجب أن يُرجَع قيمة true عندما يتم تشغيل السيناريو المطلوب
+        // وإلا، يجب أن يُرجَع قيمة false
+        return false;
+    }
+
+    private bool IsShooting()
+    {
+        // قم بتنفيذ رمز الاختبار الخاص بإطلاق النار هنا
+        // يجب أن يُرجَع قيمة true عندما يتم تشغيل السيناريو المطلوب
+        // وإلا، يجب أن يُرجَع قيمة false
+        return false;
     }
 }
